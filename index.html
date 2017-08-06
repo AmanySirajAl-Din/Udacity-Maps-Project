@@ -52,6 +52,8 @@
             
             var largInfowindow = new google.maps.infoWindow();
             
+            
+            
             // loop through the locations to create one marker per location
             
             // The following group uses the location array to create an array of markers on initialize.
@@ -73,10 +75,22 @@
                 marker.addListener('click', function() {
                     populateInfoWindow(this, largeInfowindow);
                 });
-               
             }
-                
-        }
+            // This function populates the infowindow when the marker is clicked. We'll only allow
+            // one infowindow which will open at the marker that is clicked, and populate based
+            // on that markers position.
+            function populateInfoWindow(marker, infowindow) {
+                // Check to make sure the infowindow is not already opened on this marker.
+                if (infowindow.marker != marker) {
+                    infowindow.marker = marker;
+                    infowindow.setContent('<div>' + marker.title + '</div>');
+                    infowindow.open(map, marker);
+                    // Make sure the marker property is cleared if the infowindow is closed.
+                    infowindow.addListener('closeclick',function(){
+                        infowindow.setMarker = null;
+                     });
+                }    
+            }
     </script>
 
     <!-- the First -->
