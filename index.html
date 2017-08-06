@@ -20,6 +20,8 @@
         var map;
 
         function initMap() {
+            /* ====== Load Google Map ====== */ 
+            
             // Constructor creates a new map - only center and zoom are required
             map = new google.maps.Map(document.getElementById('map'), { // wher to load the Map
                 center: { // what part of the world to show
@@ -31,6 +33,9 @@
                 // the higher the number, the more detail
                 // up to level 21
             });
+            
+            /* ====== Create a Map Marker ====== */ 
+            
             // to create my markers
             // first, create a var for the new location
             var tribeca = {lat: 40.719526, lng: -74.0089934};
