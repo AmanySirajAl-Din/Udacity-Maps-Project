@@ -34,44 +34,18 @@
                 // up to level 21
             });
             
-            /* ====== Create a Map Marker ====== */ 
+            /* ====== Create Locations Array ====== */ 
             
-            // to create my markers
-            // first, create a var for the new location
-            var tribeca = {lat: 40.719526, lng: -74.0089934};
-            
-            // then, create a new marker instance
-            // using the google.maps.Marker object
-            var marker = new google.maps.Marker({
-                // all the markers need to know >>
-                position: tribeca, // >> where it should appear
-                map: map, // >> the map it should appear on
-                title: 'My First Marker!' // give the marker a title
-                // title will appear if we hover over the marker
-                // we can make the marker also draggable
-                // also we can specify an animation (like the marker drops)
-            });
-            
-            
-            /* ====== Create an Info Window ====== */ 
-            
-            // First, create new info window instance
-            var infowindow = new google.maps.InfoWindow({
-                // it just need some content
-                content: 'Do you ever feel like an InfoWindow, floating through the wind, ' +
-                    ' ready to start again?'
-            });
-            // then, where or when to open?
-            // here it will opens when we click on the marker
-            // click event
-            marker.addListener('click', function(){
-                infowindow.open(map, marker);
-                // passing in the map on which to open
-                // and optionally, the marker on which to anchor it
-                // if we didn't pass a marker 
-                // we would need to give it a position property
-                // so it has a place to open
-            });
+            // these are the real estate listings that will be shown to the user
+            // Normally we'd have these in a database instead
+            var locations = [
+              {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
+              {title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
+              {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}},
+              {title: 'East Village Hip Studio', location: {lat: 40.7281777, lng: -73.984377}},
+              {title: 'TriBeCa Artsy Bachelor Pad', location: {lat: 40.7195264, lng: -74.0089934}},
+              {title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng: -73.9961237}}
+            ];
         }
     </script>
 
