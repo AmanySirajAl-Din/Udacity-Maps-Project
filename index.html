@@ -51,7 +51,11 @@
             ];
             
             var largInfowindow = new google.maps.infoWindow();
-            
+            // finally we may have listings that are outside the initial zoom area
+            // So to adjust the boundaries of the map to fit everything
+            // create a new latLngBounds instance
+            // which captures the southwest and northeast corners of the view port
+             var bounds = new google.maps.LatLngBounds();
             
             
             // loop through the locations to create one marker per location
@@ -75,6 +79,7 @@
                 marker.addListener('click', function() {
                     populateInfoWindow(this, largeInfowindow);
                 });
+                bounds.extend(markers[i].position);
             }
             // This function populates the infowindow when the marker is clicked. We'll only allow
             // one infowindow which will open at the marker that is clicked, and populate based
