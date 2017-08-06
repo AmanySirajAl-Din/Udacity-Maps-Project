@@ -49,6 +49,27 @@
               {title: 'TriBeCa Artsy Bachelor Pad', location: {lat: 40.7195264, lng: -74.0089934}},
               {title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng: -73.9961237}}
             ];
+            
+            var largInfowindow = new google.maps.infoWindow();
+            
+            // loop through the locations to create one marker per location
+            
+            // The following group uses the location array to create an array of markers on initialize.
+            for (var i = 0; i < locations.length; i++) {
+                // Get the position from the location array.
+                var position = locations[i].location;
+                var title = locations[i].title;
+                // Create a marker per location, and put into markers array.
+                var marker = new google.maps.Marker({
+                map: map,
+                position: position,
+                title: title,
+                animation: google.maps.Animation.DROP,
+                id: i
+              });
+                
+            }
+               
         }
     </script>
 
