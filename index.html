@@ -61,7 +61,17 @@
                 content: 'Do you ever feel like an InfoWindow, floating through the wind, ' +
                     ' ready to start again?'
             });
-            
+            // then, where or when to open?
+            // here it will opens when we click on the marker
+            // click event
+            marker.addListener('click', function(){
+                infowindow.open(map, marker);
+                // passing in the map on which to open
+                // and optionally, the marker on which to anchor it
+                // if we didn't pass a marker 
+                // we would need to give it a position property
+                // so it has a place to open
+            });
         }
     </script>
 
